@@ -1,16 +1,13 @@
 # import the necessary packages
 import numpy as np
-import argparse
 import imutils
 import cv2
+import time
 
-# construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", help="path to the image file")
-args = vars(ap.parse_args())
+start = time.time() * 1000
 
 # load the image
-image = cv2.imread(args["image"])
+image = cv2.imread('./shapes.png')
 
 # find all the 'black' shapes in the image
 lower = np.array([0, 0, 0])
@@ -23,6 +20,8 @@ cnts = cv2.findContours(shapeMask.copy(), cv2.RETR_EXTERNAL,
 cnts = imutils.grab_contours(cnts)
 print("I found {} black shapes".format(len(cnts)))
 cv2.imshow("Mask", shapeMask)
+
+print("Execution time", time.time() * 1000 - start)
 
 # loop over the contours
 for c in cnts:
