@@ -30,7 +30,7 @@ p1 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
 p2 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
 p3 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
 p4 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
-queueP = Process(target=queue_task, args=(condition, shared_queue, [3, 10, 5, 7]))
+queueP = Process(target=queue_task, args=(condition, shared_queue, [30, 13, 27, 15]))
 
 start = time.time() * 1000
 

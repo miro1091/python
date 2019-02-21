@@ -1,6 +1,6 @@
 import time
 
-input_list = [3, 10, 5, 7]
+input_list = [30, 13, 27, 15]
 
 def f(n):
     if n == 0: return 0

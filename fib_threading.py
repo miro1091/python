@@ -4,7 +4,7 @@ import time
 
 fibo_dict = []
 shared_queue = queue.Queue()
-input_list = [3, 10, 5, 7]
+input_list = [30, 13, 27, 15]
 
 queue_condition = threading.Condition()
 
