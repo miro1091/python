@@ -13,10 +13,10 @@ def loadImage():
     global image
     image = cv2.imread('./shapes.png')
 
-def createShapeMask():
+def createShapeMask(lower, upper):
 
     global shapeMask
-    shapeMask = cv2.inRange(image, numpy.array([0, 0, 0]), numpy.array([20, 20, 20]))
+    shapeMask = cv2.inRange(image, numpy.array(lower), numpy.array(upper))
 
 
 def getContours():
@@ -30,7 +30,7 @@ def getContours():
 start = time.time() * 1000
 
 thread1 = threading.Thread(target=loadImage)
-thread2 = threading.Thread(target=createShapeMask)
+thread2 = threading.Thread(target=createShapeMask, args=([0, 0, 0], [20, 20, 20]))
 thread3 = threading.Thread(target=getContours)
 
 thread1.start()
