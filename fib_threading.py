@@ -8,7 +8,6 @@ input_list = [30, 13, 27, 15]
 
 queue_condition = threading.Condition()
 
-
 def queue_task(condition):
     with condition:
         for item in input_list:

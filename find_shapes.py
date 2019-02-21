@@ -1,4 +1,3 @@
-# import the necessary packages
 import numpy
 import imutils
 import cv2
@@ -6,16 +5,25 @@ import time
 
 start = time.time() * 1000
 
-image = cv2.imread('./shapes.png')
+img = cv2.imread('./shapes.png', 1)
+minRGB = numpy.array([0, 0, 0])
+maxRGB = numpy.array([20, 20, 20])
 
-shapeMask = cv2.inRange(image, numpy.array([0, 0, 0]), numpy.array([20, 20, 20]))
+imageMask = cv2.inRange(img, minRGB, maxRGB)
 
-cnts = cv2.findContours(shapeMask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-cnts = imutils.grab_contours(cnts)
+contours = cv2.findContours(imageMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours = imutils.grab_contours(contours)
 
-print(len(cnts), 'shapes were found')
-cv2.imshow("Mask", shapeMask)
-cv2.imshow("Image", image)
-cv2.waitKey(0)
+numberOfContours = len(contours)
+
+drawShapeColor = [0, 255, 0]
+for i in contours:
+	cv2.drawContours(img, [i], -1, drawShapeColor, 4)
+
+print(numberOfContours, 'shapes were found')
+cv2.imshow("Loaded image", img)
+cv2.imshow("Mask of image", imageMask)
 
 print("Execution time", time.time() * 1000 - start)
+
+cv2.waitKey(0)
