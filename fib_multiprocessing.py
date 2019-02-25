@@ -32,7 +32,7 @@ p3 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
 p4 = Process(target=fibonacci_task, args=(condition, shared_queue, fibo_dict))
 queueP = Process(target=queue_task, args=(condition, shared_queue, [30, 13, 27, 15]))
 
-start = time.time() * 1000
+start = time.time()
 
 p1.start()
 p2.start()
@@ -45,7 +45,7 @@ p2.join()
 p3.join()
 p4.join()
 
-print("Execution time", time.time() * 1000 - start)
+print("Execution time", time.time() - start)
 
 results = []
 for i in range(4):
