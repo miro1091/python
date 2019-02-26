@@ -6,18 +6,19 @@ from queue import *
 x1 = []
 x2 = []
 x3 = []
-xn = []
 n = 999999
+
+result = [0] * 3
+for i in range(3):
+    result[i] = [0] * n
 
 for x in range(n):
   x1.append(x)
   x2.append(n-x)
   x3.append(2*n-x)
-  xn.append(0)
 
 x = [x1, x2, x3]
 y = [x3, x2, x1]
-result = [xn, xn, xn]
 
 queue = PriorityQueue()
 processes = []
