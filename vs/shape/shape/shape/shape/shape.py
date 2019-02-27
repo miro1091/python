@@ -2,13 +2,20 @@ import numpy
 import imutils
 import cv2
 import time
+import urllib.request
 
-start = time.time() * 1000
+start = time.time()
 
-img = cv2.imread('./shapes.png', 1)
+def url_to_image(url):
+	resp = urllib.request.urlopen(url)
+	image = numpy.asarray(bytearray(resp.read()), dtype="uint8")
+	image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+	return image
+
+img = url_to_image('https://www.pyimagesearch.com/wp-content/uploads/2014/10/finding_shapes_example.png')
+print(img)
 minRGB = numpy.array([0, 0, 0])
 maxRGB = numpy.array([20, 20, 20])
-print(img)
 imageMask = cv2.inRange(img, minRGB, maxRGB)
 
 contours = cv2.findContours(imageMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -24,6 +31,6 @@ print(numberOfContours, 'shapes were found')
 cv2.imshow("Loaded image", img)
 cv2.imshow("Mask of image", imageMask)
 
-print("Execution time", time.time() * 1000 - start)
+print("Execution time", time.time() - start)
 
 cv2.waitKey(0)

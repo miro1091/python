@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "shape_threading_iron", "shape_threading_iron\shape_threading_iron.pyproj", "{20595D5E-2523-4EFB-BC46-CB697BE18021}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20595D5E-2523-4EFB-BC46-CB697BE18021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20595D5E-2523-4EFB-BC46-CB697BE18021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {434477E1-22B0-4977-A289-9DDB80B3494E}
+	EndGlobalSection
+EndGlobal
