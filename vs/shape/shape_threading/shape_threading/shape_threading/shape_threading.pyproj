@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>243b2d34-0325-4d02-8ede-748ac3b3677a</ProjectGuid>
+    <ProjectGuid>4b625ce0-0fda-4757-81c7-ec8f36184320</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>shape.py</StartupFile>
+    <StartupFile>shape_threading.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>shape</Name>
-    <RootNamespace>shape</RootNamespace>
+    <Name>shape_threading</Name>
+    <RootNamespace>shape_threading</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="shape.py" />
+    <Compile Include="shape_threading.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

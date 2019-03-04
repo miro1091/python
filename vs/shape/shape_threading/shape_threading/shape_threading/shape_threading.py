@@ -3,14 +3,14 @@ import imutils
 import cv2 #not supported in IronPyton!
 import time
 import threading
-import urllib
+import urllib.request
 
 img = None
 imageMask = None
 contours = None
 
 def url_to_image(url):
-	resp = urllib.urlopen(url)
+	resp = urllib.request.urlopen(url)
 	image = numpy.asarray(bytearray(resp.read()), dtype="uint8")
 	image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 	return image
@@ -49,28 +49,29 @@ def showImages():
     cv2.imshow("Loaded default image", img)
     cv2.imshow("Mask of image", imageMask)
 
+if __name__ == '__main__':
 
-start = time.time()
+    start = time.time()
 
 
-thread1 = threading.Thread(target=loadImage)
-thread2 = threading.Thread(target=createShapeMask)
-thread3 = threading.Thread(target=getContours)
-thread4 = threading.Thread(target=drawShapeColorToDefaultImg)
+    thread1 = threading.Thread(target=loadImage)
+    thread2 = threading.Thread(target=createShapeMask)
+    thread3 = threading.Thread(target=getContours)
+    thread4 = threading.Thread(target=drawShapeColorToDefaultImg)
 
-thread1.start()
-thread1.join()
+    thread1.start()
+    thread1.join()
 
-thread2.start()
-thread2.join()
+    thread2.start()
+    thread2.join()
 
-thread3.start()
-thread3.join()
+    thread3.start()
+    thread3.join()
 
-thread4.start()
-thread4.join()
+    thread4.start()
+    thread4.join()
 
-showImages()
-print("Execution time", time.time() - start)
+    showImages()
+    print("Execution time", time.time() - start)
 
-cv2.waitKey(0)
+    cv2.waitKey(0)
