@@ -27,10 +27,10 @@ drawShapeColor = [0, 255, 0]
 for i in contours:
 	cv2.drawContours(img, [i], -1, drawShapeColor, 4)
 
+print("Execution time", time.time() - start)
+
 print(numberOfContours, 'shapes were found')
 cv2.imshow("Loaded image", img)
 cv2.imshow("Mask of image", imageMask)
-
-print("Execution time", time.time() - start)
 
 cv2.waitKey(0)

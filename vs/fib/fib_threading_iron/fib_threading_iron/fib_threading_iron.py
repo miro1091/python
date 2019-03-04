@@ -1,15 +1,13 @@
 import time
 
-start_time = time.time()
-
-from Queue import *
+import Queue
 import threading
 
 numbers = [999999, 999999, 999999, 999999]
-q = PriorityQueue()
+q = Queue.PriorityQueue()
 threads = []
 queue_condition = threading.Condition()
-shared_queue = Queue()
+shared_queue = Queue.Queue()
 
 def fibonacci(condition, priority):
     with condition:
@@ -37,15 +35,12 @@ for i in range(4):
 
 threads.append(threading.Thread(target=queue_task, args=(queue_condition,)));
 
+start_time = time.time()
+
 for t in threads:
     t.start()
 
 for t in threads:
     t.join()
-
-while not q.empty():
-    ans = q.get()
-    q.task_done()
-    print ans[1]
 
 print("%s seconds" % (time.time() - start_time))

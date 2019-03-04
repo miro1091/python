@@ -1,7 +1,5 @@
 import time
 
-start_time = time.time()
-
 from queue import *
 from multiprocessing import Process
 
@@ -23,6 +21,8 @@ if __name__ == '__main__':
         num = numbers[i]
         p = Process(target = fibonacci, args = (priority, num))
         processes.append(p)
+
+    start_time = time.time()
 
     for p in processes:
         p.start()

@@ -47,11 +47,11 @@ def thirdRow(priority):
     result.append(temp)
     q.put((priority, result))
 
-start = time.time()
-
 thread1 = threading.Thread(target=firstRow, args=(0,))
 thread2 = threading.Thread(target=secondRow, args=(1,))
 thread3 = threading.Thread(target=thirdRow, args=(2, ))
+
+start = time.time()
 
 thread1.start()
 thread2.start()

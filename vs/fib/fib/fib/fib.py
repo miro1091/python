@@ -12,7 +12,7 @@ def f(n):
 
 
 for i in input_list:
-    print(f(i))
+    f(i)
 
 print("Execution time(s)", time.time() - start)
 

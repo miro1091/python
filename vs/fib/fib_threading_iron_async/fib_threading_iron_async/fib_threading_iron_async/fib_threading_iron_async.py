@@ -1,7 +1,5 @@
 import time
 
-start_time = time.time()
-
 from Queue import *
 import threading
 
@@ -22,15 +20,12 @@ for i in range(4):
     t = threading.Thread(target = fibonacci, args = (i, numbers[i],))
     threads.append(t)
 
+start_time = time.time()
+
 for t in threads:
     t.start()
 
 for t in threads:
     t.join()
-
-while not q.empty():
-    ans = q.get()
-    q.task_done()
-    print ans[1]
 
 print("%s seconds" % (time.time() - start_time))

@@ -71,7 +71,8 @@ if __name__ == '__main__':
     thread4.start()
     thread4.join()
 
-    showImages()
     print("Execution time", time.time() - start)
+
+    showImages()
 
     cv2.waitKey(0)
