@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define COL 3
+#define COL 9000
 
 int main(void) {
 	int c, d, k, sum = 0;
@@ -48,15 +48,16 @@ int main(void) {
 
 	clock_t end = clock();
 
-	for (c = 0; c < 3; c++)
+	/*for (c = 0; c < 3; c++)
 	{
 		for (d = 0; d < COL; d++)
 			printf("%.2f\t", result[c][d]);
 
 		printf("\n");
-	}
+	}*/
 
-	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	double time_spent = ((double)(end - begin))/(CLOCKS_PER_SEC);
+	printf("Execution time(s): %f\n", end);
 	printf("Execution time(s): %f\n", time_spent);
 
 	return 0;

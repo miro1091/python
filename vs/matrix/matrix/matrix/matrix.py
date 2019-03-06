@@ -3,7 +3,7 @@ import time
 x1 = []
 x2 = []
 x3 = []
-n = 999999
+n = 9000
 
 result = [0] * 3
 for i in range(3):
