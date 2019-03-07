@@ -26,6 +26,6 @@ if __name__ == '__main__':
 
     start_time = time.time()
 
-    # TODO: start all processes async with proper 2 methods
+    # TODO: start all processes in loop async with 2 proper methods
 
     print("%s seconds" % (time.time() - start_time))
