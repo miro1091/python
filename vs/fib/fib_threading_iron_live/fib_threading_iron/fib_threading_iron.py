@@ -13,7 +13,8 @@ def fibonacci(condition, priority):
     with condition:
 
         while shared_queue.empty():
-            condition.wait()
+            # TODO: wait here, while queue_task function is executing
+       
 
         num = shared_queue.get()
         a,b = 0,1
@@ -26,8 +27,8 @@ def queue_task(condition):
     with condition:
         for item in numbers:
             shared_queue.put(item)
-
-        condition.notifyAll()
+        # TODO: notify all other threads, that acctualy running thread has finished work 
+        
 
 for i in range(4):
     t = threading.Thread(target = fibonacci, args = (queue_condition, i,))
